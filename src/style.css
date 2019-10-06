@@ -24,6 +24,14 @@ body {
   background-color: #fafafa !important;
 }
 
+a {
+  transition-duration: 0ms !important;
+}
+
+a:hover {
+  color: #02aae1 !important;
+}
+
 /* 
 *
 *
@@ -603,6 +611,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fa {
+  background-size: 100%;
+}
+
+.fa-facebook {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/fb.png');
+}
+.fa-twitter {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/twitter.png');
+}
+.fa-youtube {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/youtube.png');
+}
+.fa-skype {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/skype.png');
+}
+.fa-instagram {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/instagram.png');
+}
+.fa-google-plus {
+  background-image: url('https://cdn.jsdelivr.net/npm/greenwood-rezervacia@1.0.3/src/img/google-plus.png');
 }
 
 /*
