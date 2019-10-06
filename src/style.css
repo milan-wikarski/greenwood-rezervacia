@@ -356,6 +356,9 @@ a:hover {
   display: none !important;
 }
 
+#b24scroller .bootstrap-switch {
+  display: none;
+}
 /*
 *
 *

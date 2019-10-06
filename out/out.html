@@ -436,6 +436,9 @@ a:hover {
   display: none !important;
 }
 
+#b24scroller .bootstrap-switch {
+  display: none;
+}
 /*
 *
 *
@@ -941,8 +944,8 @@ a:hover {
   }
 
   // Turn multiroom into select
-  $('#multiplecheckbox .bootstrap-switch')
-    .html(
+  $('#multiplecheckbox')
+    .append(
       $(
         isMultiroom
           ? '<select><option value="1" selected>Áno</option><option value="0">Nie</option></select>'
@@ -959,7 +962,6 @@ a:hover {
         })
         .attr('class', 'form-control')
     )
-    .attr('class', '')
     .css({ width: '100%' });
 
   // Change the layout of room boxes
@@ -972,6 +974,42 @@ a:hover {
       ].join('')
     );
   });
+
+  // Monitor checkin and checkout input
+  function monitorInput() {
+    var checkin = $('#checkin_hide').val();
+    var checkout = $('#checkout_hide').val();
+
+    var detected = false;
+
+    console.log(checkin, checkout);
+
+    function monitor() {
+      if (
+        !detected &&
+        ($('#checkin_hide').val() != checkin ||
+          $('#checkout_hide').val() != checkout)
+      ) {
+        detected = true;
+
+        var params = deserialize();
+
+        params.checkin = $('#checkin_hide').val();
+        params.checkout = $('#checkout_hide').val();
+
+        window.open(
+          location.origin + location.pathname + '?' + serialize(params),
+          '_self'
+        );
+      }
+
+      window.requestAnimationFrame(monitor);
+    }
+
+    monitor();
+  }
+
+  // monitorInput();
 });
 </script>
 
