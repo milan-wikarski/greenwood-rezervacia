@@ -76,10 +76,11 @@ a {color: #0070a3;}
 .button a{
  color: #ffffff;
 }
-
-{{style}}
-
 </style>
+
+<style>{{{ style }}}</style>
+
+<script>{{{ js }}}</script>
 
 </head><body class="colorbody layout2 setborderstyle1"><div id="ajaxqueue"></div><script type="text/javascript">
 $( document ).ready(function() {
@@ -255,9 +256,7 @@ $("#inputnumchild").on("change",function () {
 });
   
 </script>
-	
 
-	
 <script>$( document ).ready(function() {var ci = new Date ($("#inputcheckin").data("DateTimePicker").date());
 	var cif = ci.getFullYear() + "-" + (ci.getMonth() + 1) + "-" + ci.getDate();
 	$("#checkin_hide").val(cif);
@@ -266,7 +265,8 @@ $("#inputnumchild").on("change",function () {
 		var cof = co.getFullYear() + "-" + (co.getMonth() + 1) + "-" + co.getDate();
 		$("#checkout_hide").val(cof);
 	}
-});</script>
+});
+</script>
 </div>
 <div class="clearfix"></div>
 </div>

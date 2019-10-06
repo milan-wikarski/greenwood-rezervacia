@@ -76,15 +76,152 @@ a {color: #0070a3;}
 .button a{
  color: #ffffff;
 }
+</style>
 
+<style>@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+/* 0: General */
+html,
+body {
+  overflow-x: hidden;
+
+  background-color: #fafafa !important;
+}
+
+.atcolor {
+  background-color: #fafafa !important;
+}
+
+/* 1: Main Header */
+#main-header {
+  width: 100%;
+  height: 86px;
+
+  background-image: url('https://hotelsmokovec.eu/wp-content/uploads/2017/06/wood-texture.jpg');
+  background-size: 100%;
+
+  overflow: hidden;
+}
+
+#main-header .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 1100px;
+
+  padding: 0;
+}
+
+#main-header .container::before,
+#main-header .container::after {
+  content: none;
+}
+
+#main-header .logo {
+  flex-basis: 350px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+#main-header .logo img {
+  width: 327px;
+}
+
+#main-header .header_right {
+  align-self: stretch;
+
+  flex-basis: 100%;
+  flex-shrink: 1;
+  flex-grow: 0;
+}
+
+#nav {
+  height: 100%;
+
+  padding: 0;
+
+  font-family: 'Roboto Condensed';
+}
+
+#nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 86px;
+
+  padding: 0;
+  margin: 0;
+}
+
+#nav > ul > li {
+  position: relative;
+
+  list-style: none;
+}
+
+#nav > ul > li a {
+  color: white;
+
+  text-decoration: none;
+}
+
+#nav > ul > li > a {
+  text-transform: uppercase;
+
+  padding: 32px 13px;
+  font-size: 15px;
+}
+
+#nav > ul > li > ul {
+  position: absolute;
+  left: 9999em;
+}
+
+/* 2: Language and currency */
+#topofthebookingpage {
+  position: fixed;
+  z-index: 2000;
+  top: 86px;
+  left: 0;
+
+  width: 100%;
+
+  background-color: #b7410e !important;
+}
+.iframe #topofthebookingpage {
+  top: 0;
+}
+
+#topofthebookingpage .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: inherit !important;
+}
+
+.b24languagedropdown .btn.dropdown-toggle {
+  display: none;
+}
+
+.b24languagedropdown .flag + .flag {
+  margin-left: 5px;
+}
+
+/* 3: Arrival departure and guests */
 #b24scroller-fullcontainer {
   position: fixed;
   z-index: 1000;
-  top: 0;
+  top: 115px;
   left: 0;
 
   width: 100vw;
   height: auto;
+}
+.iframe #b24scroller-fullcontainer {
+  top: 29px;
 }
 
 #b24scroller-container {
@@ -110,8 +247,134 @@ a {color: #0070a3;}
   display: none !important;
 }
 
+/* 4: Rooms */
+.b24fullcontainer-rooms {
+  padding-top: 140px;
+}
 
+.b24panel-room {
+  border: 0;
+
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.b24panel-room .panel-body {
+  border-radius: 5px;
+}
 </style>
+
+<script>window.addEventListener('DOMContentLoaded', function() {
+  var isIframe = (function() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return true;
+    }
+  })();
+
+  if (isIframe) {
+    document.body.classList.add('iframe');
+  }
+
+  var header = null;
+  var footer = null;
+
+  function generateHeader() {
+    var header = {
+      ref: document.createElement('header'),
+      init: function() {
+        header.ref.setAttribute('id', 'main-header');
+
+        header.ref.innerHTML =
+          '<header class="header"><div class="container"><div class="logo"><a href="https://hotelsmokovec.eu/"> <img src="https://hotelsmokovec.eu/wp-content/uploads/2019/05/greenwood_logo_web.png"> <span class="tagline"></span> </a></div><div class="header_right"><div class="mobile_nav"><a href="#" style="display: none;">Menu</a></div><nav id="nav"><ul><li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://hotelsmokovec.eu/ubytovanie/">UBYTOVANIE</a></li><li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36 hover"><a href="https://hotelsmokovec.eu/cennik/">CENNÍK</a></li><li id="menu-item-172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-172"><a href="#">REZERVÁCIA</a><ul class="sub-menu"><li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173"><a href="https://hotelsmokovec.eu/online-rezervacia/">ON-LINE REZERVÁCIA</a></li><li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-174"><a href="https://hotelsmokovec.eu/rezervacia/">NEZÁVÄZNÁ REZERVÁCIA</a></li></ul></li><li id="menu-item-225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-225"><a href="#">Región</a><ul class="sub-menu"><li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41"><a href="https://hotelsmokovec.eu/lokalita/">Lokalita</a></li><li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://hotelsmokovec.eu/doprava/">Doprava</a></li></ul></li><li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380"><a href="https://hotelsmokovec.eu/gallery/">Fotogaléria</a></li><li id="menu-item-5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5"><a href="https://hotelsmokovec.eu/kontakt/">KONTAKT</a></li><li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="https://hotelsmokovec.eu/blog/">Blog</a></li></ul></nav></div></div></header>';
+
+        $(document.body).prepend(header.ref);
+      }
+    };
+
+    return header;
+  }
+
+  function generateFooter() {
+    var footer = {
+      ref: document.createElement('footer'),
+      init: function() {
+        footer.ref.setAttribute('id', 'main-footer');
+
+        document.body.appendChild(footer.ref);
+      }
+    };
+
+    return footer;
+  }
+
+  if (!isIframe) {
+    header = generateHeader();
+    footer = generateFooter();
+
+    header.init();
+    footer.init();
+  }
+
+  // Generate flags
+  function generateFlags() {
+    $('.b24languagedropdown ul.dropdown-menu li').each(function() {
+      var lang = $(this)
+        .attr('class')
+        .replace('lang-', '');
+
+      var country = (function() {
+        switch (lang) {
+          case 'en':
+            return 'gb';
+          case 'cs':
+            return 'cz';
+          case 'he':
+            return 'il';
+          case 'ja':
+            return 'jp';
+          case 'zh':
+            return 'cn';
+          default:
+            return lang;
+        }
+      })();
+
+      $('.b24languagedropdown').append(
+        '<a class="flag"><img src="https://www.countryflags.io/' +
+          country +
+          '/flat/24.png" data-lang="' +
+          lang +
+          '"></a>'
+      );
+    });
+  }
+
+  generateFlags();
+
+  // Adjust fixed positions of sticky elements
+  function adjustFixedPosition(el, initial, min) {
+    if (el == null) return;
+
+    function adjust() {
+      var y = document.body.getBoundingClientRect().y;
+      el.style.top = Math.max(min, initial + y) + 'px';
+
+      window.requestAnimationFrame(adjust);
+    }
+
+    adjust();
+  }
+
+  if (isIframe) {
+    adjustFixedPosition($('#topofthebookingpage')[0], 86, 0);
+    adjustFixedPosition($('#b24scroller-fullcontainer')[0], 116, 29);
+  }
+
+  // Change the layout of room boxes
+});
+</script>
 
 </head><body class="colorbody layout2 setborderstyle1"><div id="ajaxqueue"></div><script type="text/javascript">
 $( document ).ready(function() {
@@ -287,9 +550,7 @@ $("#inputnumchild").on("change",function () {
 });
   
 </script>
-	
 
-	
 <script>$( document ).ready(function() {var ci = new Date ($("#inputcheckin").data("DateTimePicker").date());
 	var cif = ci.getFullYear() + "-" + (ci.getMonth() + 1) + "-" + ci.getDate();
 	$("#checkin_hide").val(cif);
@@ -298,7 +559,8 @@ $("#inputnumchild").on("change",function () {
 		var cof = co.getFullYear() + "-" + (co.getMonth() + 1) + "-" + co.getDate();
 		$("#checkout_hide").val(cof);
 	}
-});</script>
+});
+</script>
 </div>
 <div class="clearfix"></div>
 </div>

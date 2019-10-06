@@ -3,7 +3,7 @@
     "commands": [
       {
         "match": ".*",
-        "cmd": "node index.js",
+        "cmd": "node build.js",
         "silent": true
       }
     ]
