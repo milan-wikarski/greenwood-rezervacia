@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', function() {
     adjust();
   }
 
-  if (isIframe) {
+  if (!isIframe) {
     adjustFixedPosition($('#topofthebookingpage')[0], 86, 0);
     adjustFixedPosition($('#b24scroller-fullcontainer')[0], 116, 29);
   }
