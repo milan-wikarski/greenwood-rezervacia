@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,400,500,700&display=swap');
 
 /*
 *
@@ -16,6 +16,8 @@ body {
   background-color: #fafafa !important;
 
   font-family: 'Roboto' !important;
+
+  line-height: 22px;
 }
 
 .atcolor {
@@ -426,7 +428,191 @@ body {
 *
 */
 /* ======================================== */
-/*                   4: Misc                */
+/*              4: Main footer              */
+/* ======================================== */
+#footer a,
+#copyright a {
+  color: #ffffff;
+}
+
+#footer {
+  padding-top: 50px;
+
+  font-size: 12px;
+
+  background-color: #3d3d3d;
+  color: #ffffff;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+#footer .resp-wrap {
+  display: flex;
+  align-items: flex-start;
+
+  max-width: 1100px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer .resp-wrap > * {
+  flex-basis: 22.8%;
+}
+
+#footer .resp-wrap > * + * {
+  margin-left: 5%;
+}
+
+#footer h5 {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #101010;
+  box-shadow: 0 1px 0 #2e2e2e;
+
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 24px !important;
+
+  color: #ffffff;
+}
+@media all and (min-width: 768px) and (max-width: 1100px) {
+  #footer h5 {
+    font-size: 18px !important;
+  }
+}
+
+#footer h5 > span {
+  font-weight: 700;
+}
+
+#footer ul {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+#footer ul li {
+  display: block;
+
+  margin: 0 0 8px;
+  padding: 0;
+
+  line-height: 22px;
+}
+
+#footer ul li a {
+  margin: 0;
+  padding: 0 0 0 20px;
+  background: url('//hotelsmokovec.eu/wp-content/themes/skt_hotel/images/list-arrow.png')
+    no-repeat center left;
+
+  text-decoration: none;
+}
+
+#footer .post-grid {
+  margin-bottom: 20px;
+  min-height: 60px;
+  width: 98%;
+  margin: 0 0 35px;
+  margin-bottom: 35px;
+  min-height: 75px;
+}
+
+#footer .post-grid .left-postthumb {
+  width: 25%;
+  float: left;
+  margin: 0 20px 0 0;
+  position: relative;
+}
+
+#footer .post-grid p {
+  line-height: 18px;
+}
+
+#footer .post-grid h6:hover {
+  opacity: 1;
+}
+
+#footer .post-grid h6 {
+  color: #02aae1;
+}
+
+#footer .post-grid h6 {
+  margin-bottom: 5px;
+  text-transform: none;
+  color: #02aae1;
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+#footer .fourth p {
+  margin: 0;
+}
+
+#footer .social-icons a {
+  background-color: #8a8a8a;
+}
+#footer .social-icons a {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 7px 7px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: 0.6s;
+  -moz-transition: 0.6s;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+}
+.fa-2x {
+  font-size: 2em;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 14px;
+  line-height: 1;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#copyright {
+  padding: 20px 0;
+
+  font-size: 14px;
+
+  background-color: #000;
+  color: #a8a8a8;
+}
+
+#copyright .resp-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*
+*
+*
+*
+*
+*/
+/* ======================================== */
+/*                 999: Misc                */
 /* ======================================== */
 .b24fullcontainer-footer {
   display: none;
