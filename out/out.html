@@ -286,6 +286,17 @@ a:hover {
   margin-left: 5px;
 }
 
+@media all and (min-width: 768px) {
+  .b24languagedropdown .flag-16 {
+    display: none;
+  }
+}
+@media all and (max-width: 767px) {
+  .b24languagedropdown .flag-24 {
+    display: none;
+  }
+}
+
 .b24languagedropdown .flag:last-of-type {
   margin-right: 10px;
 }
@@ -344,6 +355,16 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+@media all and (max-width: 767px) {
+  #b24scroller > .row {
+    flex-wrap: wrap;
+  }
+
+  #b24scroller > .row .form-group {
+    background-color: inherit !important;
+    border: 0 !important;
+  }
+}
 
 #b24scroller > .row > * {
   padding: 0 5px;
@@ -362,6 +383,13 @@ a:hover {
 #b24scroller .col-xs-12.col-sm-2.col-md-2.col-lg-2 {
   flex-grow: 1;
   max-width: 150px;
+}
+
+@media all and (max-width: 767px) {
+  #b24scroller .col-xs-12.col-sm-2.col-md-2.col-lg-2 {
+    width: 50%;
+    max-width: none;
+  }
 }
 
 #b24scroller .control-label {
@@ -552,6 +580,26 @@ a:hover {
 
 #footer .resp-wrap > * + * {
   margin-left: 5%;
+}
+
+@media all and (max-width: 767px) {
+  #footer .resp-wrap {
+    flex-wrap: wrap;
+  }
+
+  #footer .resp-wrap > * {
+    flex-basis: 100%;
+
+    text-align: center;
+  }
+
+  #footer .resp-wrap > * + * {
+    margin-left: 0;
+  }
+
+  #footer .resp-wrap > * {
+    margin-bottom: 5%;
+  }
 }
 
 #footer h5 {
@@ -844,9 +892,16 @@ a:hover {
         $(
           '<a href="#' +
             lang +
-            '" class="flag"><img src="https://www.countryflags.io/' +
+            '" class="flag flag-24"><img src="https://www.countryflags.io/' +
             country +
             '/flat/24.png" data-lang="' +
+            lang +
+            '"></a>' +
+            '<a href="#' +
+            lang +
+            '" class="flag flag-16"><img src="https://www.countryflags.io/' +
+            country +
+            '/flat/16.png" data-lang="' +
             lang +
             '"></a>'
         ).on('click', function(e) {

@@ -112,9 +112,16 @@ window.addEventListener('DOMContentLoaded', function() {
         $(
           '<a href="#' +
             lang +
-            '" class="flag"><img src="https://www.countryflags.io/' +
+            '" class="flag flag-24"><img src="https://www.countryflags.io/' +
             country +
             '/flat/24.png" data-lang="' +
+            lang +
+            '"></a>' +
+            '<a href="#' +
+            lang +
+            '" class="flag flag-16"><img src="https://www.countryflags.io/' +
+            country +
+            '/flat/16.png" data-lang="' +
             lang +
             '"></a>'
         ).on('click', function(e) {
