@@ -191,40 +191,4 @@ window.addEventListener('DOMContentLoaded', function() {
       ].join('')
     );
   });
-
-  // Monitor checkin and checkout input
-  function monitorInput() {
-    var checkin = $('#checkin_hide').val();
-    var checkout = $('#checkout_hide').val();
-
-    var detected = false;
-
-    console.log(checkin, checkout);
-
-    function monitor() {
-      if (
-        !detected &&
-        ($('#checkin_hide').val() != checkin ||
-          $('#checkout_hide').val() != checkout)
-      ) {
-        detected = true;
-
-        var params = deserialize();
-
-        params.checkin = $('#checkin_hide').val();
-        params.checkout = $('#checkout_hide').val();
-
-        window.open(
-          location.origin + location.pathname + '?' + serialize(params),
-          '_self'
-        );
-      }
-
-      window.requestAnimationFrame(monitor);
-    }
-
-    monitor();
-  }
-
-  // monitorInput();
 });

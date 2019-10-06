@@ -134,9 +134,14 @@ a:hover {
   align-items: flex-start;
   justify-content: space-between;
 
-  width: 1100px;
+  max-width: 1100px;
 
   padding: 0;
+}
+@media all and (max-width: 980px) {
+  #main-header .container {
+    flex-wrap: wrap;
+  }
 }
 
 #main-header .container::before,
@@ -148,10 +153,22 @@ a:hover {
   flex-basis: 350px;
   flex-grow: 1;
   flex-shrink: 0;
+
+  height: 86px;
+
+  overflow: hidden;
 }
 
 #main-header .logo img {
+  display: block;
+
   width: 327px;
+}
+@media all and (max-width: 980px) {
+  #main-header .logo {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 #main-header .header_right {
@@ -161,6 +178,11 @@ a:hover {
   flex-shrink: 1;
   flex-grow: 0;
 }
+@media all and (max-width: 980px) {
+  #header_nav {
+    display: block;
+  }
+}
 
 #nav {
   height: 100%;
@@ -168,6 +190,11 @@ a:hover {
   padding: 0;
 
   font-family: 'Roboto Condensed';
+}
+@media all and (max-width: 980px) {
+  #nav {
+    display: none;
+  }
 }
 
 #nav ul {
@@ -264,6 +291,11 @@ a:hover {
 .iframe #topofthebookingpage {
   top: 0;
 }
+@media all and (max-width: 767px) {
+  #topofthebookingpage {
+    position: static;
+  }
+}
 
 #topofthebookingpage .container {
   display: flex;
@@ -297,12 +329,17 @@ a:hover {
   }
 }
 
-.b24languagedropdown .flag:last-of-type {
+.b24languagedropdown .flag:nth-last-of-type(2),
+.b24languagedropdown .flag:nth-last-of-type(1) {
   margin-right: 10px;
 }
 
 #dropdownMenu2 {
   color: white;
+}
+
+.b24fullcontainer-ownerrow1 {
+  display: none;
 }
 
 /*
@@ -325,6 +362,11 @@ a:hover {
 }
 .iframe #b24scroller-fullcontainer {
   top: 29px;
+}
+@media all and (max-width: 767px) {
+  #b24scroller-fullcontainer {
+    position: static;
+  }
 }
 
 #b24scroller-container {
@@ -360,9 +402,20 @@ a:hover {
     flex-wrap: wrap;
   }
 
+  #b24scroller > .row > * {
+    flex-basis: 50%;
+    max-width: none;
+  }
+
   #b24scroller > .row .form-group {
     background-color: inherit !important;
     border: 0 !important;
+  }
+
+  #b24scroller label {
+    width: 100%;
+
+    text-align: center;
   }
 }
 
@@ -421,6 +474,11 @@ a:hover {
 #b24scroller input {
   border-radius: 0 5px 5px 0 !important;
 }
+@media all and (max-width: 767px) {
+  #b24scroller input {
+    border-radius: 5px !important;
+  }
+}
 
 #b24scroller .input-group-addon {
   width: 45px;
@@ -450,6 +508,11 @@ a:hover {
 /* ======================================== */
 .b24fullcontainer-rooms {
   padding-top: 145px;
+}
+@media all and (max-width: 767px) {
+  .b24fullcontainer-rooms {
+    padding-top: 20px;
+  }
 }
 
 .b24room {
@@ -504,6 +567,11 @@ a:hover {
   display: flex;
   align-items: stretch;
 }
+@media all and (max-width: 767px) {
+  .b24panel-room .panel-body .offer .row {
+    flex-wrap: wrap;
+  }
+}
 
 .b24panel-room .panel-body .offer .row .b24-module {
   padding: 0;
@@ -515,12 +583,33 @@ a:hover {
 
   padding: 15px;
 }
+@media all and (max-width: 767px) {
+  .b24panel-room .panel-body .offer .row .b24-offer-summary > *,
+  .b24panel-room .panel-body .offer .row .b24-offer-select > * {
+    padding: 8px;
+  }
+}
 
 /* SLIDER */
 .b24panel-room .panel-body .offer .row .b24-offer-slider {
   flex-basis: 375px;
+  min-width: 200px;
 
   overflow: hidden;
+}
+@media all and (max-width: 767px) {
+  .b24panel-room .panel-body .offer .row .b24-offer-slider {
+    order: 1;
+    flex-basis: 100%;
+  }
+}
+
+/* SUMMARY */
+@media all and (max-width: 767px) {
+  .b24panel-room .panel-body .offer .row .b24-offer-summary {
+    order: 2;
+    flex-basis: 100%;
+  }
 }
 
 /* BOOK */
@@ -531,6 +620,20 @@ a:hover {
   justify-content: flex-end;
 
   flex-basis: 200px;
+}
+@media all and (max-width: 767px) {
+  .b24panel-room .panel-body .offer .row .b24-offer-select,
+  .b24panel-room .panel-body .offer .row .b24-offer-select > div,
+  .b24panel-room .panel-body .offer .row .b24-offer-select > div > div {
+    order: 3;
+    flex-basis: 100%;
+
+    width: 100%;
+  }
+
+  .b24panel-room .panel-body .offer .row .b24-offer-select input {
+    margin-top: 5px;
+  }
 }
 
 .b24panel-room .panel-body .offer .row .b24-offer-select .at_roomofferprice {
@@ -974,42 +1077,6 @@ a:hover {
       ].join('')
     );
   });
-
-  // Monitor checkin and checkout input
-  function monitorInput() {
-    var checkin = $('#checkin_hide').val();
-    var checkout = $('#checkout_hide').val();
-
-    var detected = false;
-
-    console.log(checkin, checkout);
-
-    function monitor() {
-      if (
-        !detected &&
-        ($('#checkin_hide').val() != checkin ||
-          $('#checkout_hide').val() != checkout)
-      ) {
-        detected = true;
-
-        var params = deserialize();
-
-        params.checkin = $('#checkin_hide').val();
-        params.checkout = $('#checkout_hide').val();
-
-        window.open(
-          location.origin + location.pathname + '?' + serialize(params),
-          '_self'
-        );
-      }
-
-      window.requestAnimationFrame(monitor);
-    }
-
-    monitor();
-  }
-
-  // monitorInput();
 });
 </script>
 
