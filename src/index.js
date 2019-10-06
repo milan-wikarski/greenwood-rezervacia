@@ -102,9 +102,22 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 
   if (!isIframe) {
-    adjustFixedPosition($('#topofthebookingpage')[0], 86, 0);
-    adjustFixedPosition($('#b24scroller-fullcontainer')[0], 116, 29);
+    adjustFixedPosition($('#topofthebookingpage')[0], 83, 0);
+    adjustFixedPosition($('#b24scroller-fullcontainer')[0], 83 + 35, 35);
   }
+
+  $('#multiplecheckbox .bootstrap-switch')
+    .html(
+      $(
+        '<select><option value="0">Nie</option><option value="1">Áno</option></select>'
+      )
+        .on('change', function() {
+          console.log('TEST');
+        })
+        .attr('class', 'form-control')
+    )
+    .attr('class', '')
+    .css({ width: '100%' });
 
   // Change the layout of room boxes
 });
