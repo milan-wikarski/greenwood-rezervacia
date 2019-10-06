@@ -1,0 +1,11 @@
+{
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": ".*",
+        "cmd": "node index.js",
+        "silent": true
+      }
+    ]
+  }
+}

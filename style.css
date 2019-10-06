@@ -1,0 +1,32 @@
+#b24scroller-fullcontainer {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: auto;
+}
+
+#b24scroller-container {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+#b24scroller {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#b24scroller > .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b24-selector-numnight {
+  display: none !important;
+}
