@@ -106,11 +106,25 @@ window.addEventListener('DOMContentLoaded', function() {
       })();
 
       $('.b24languagedropdown').append(
-        '<a class="flag"><img src="https://www.countryflags.io/' +
-          country +
-          '/flat/24.png" data-lang="' +
-          lang +
-          '"></a>'
+        $(
+          '<a href="#' +
+            lang +
+            '" class="flag"><img src="https://www.countryflags.io/' +
+            country +
+            '/flat/24.png" data-lang="' +
+            lang +
+            '"></a>'
+        ).on('click', function(e) {
+          e.preventDefault();
+
+          var params = deserialize();
+          params.lang = lang;
+
+          window.open(
+            location.origin + location.pathname + '?' + serialize(params),
+            '_self'
+          );
+        })
       );
     });
   }
