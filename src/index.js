@@ -1,4 +1,35 @@
 window.addEventListener('DOMContentLoaded', function() {
+  function serialize(obj) {
+    var str = [];
+    for (var p in obj)
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+      }
+    return str.join('&');
+  }
+
+  function deserialize(pairs) {
+    pairs = pairs || window.location.search.substring(1).split('&');
+
+    var obj = {};
+    var pair;
+    var i;
+
+    for (i in pairs) {
+      if (pairs[i] === '') continue;
+
+      pair = pairs[i].split('=');
+      obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    }
+
+    return obj;
+  }
+
+  var isMultiroom = deserialize().multiroom == '1';
+  if (isMultiroom) {
+    document.body.classList.add('multiroom');
+  }
+
   var isIframe = (function() {
     try {
       return window.self !== window.top;
@@ -6,7 +37,6 @@ window.addEventListener('DOMContentLoaded', function() {
       return true;
     }
   })();
-
   if (isIframe) {
     document.body.classList.add('iframe');
   }
@@ -106,13 +136,22 @@ window.addEventListener('DOMContentLoaded', function() {
     adjustFixedPosition($('#b24scroller-fullcontainer')[0], 83 + 35, 35);
   }
 
+  // Turn multiroom into select
   $('#multiplecheckbox .bootstrap-switch')
     .html(
       $(
-        '<select><option value="0">Nie</option><option value="1">Áno</option></select>'
+        isMultiroom
+          ? '<select><option value="1" selected>Áno</option><option value="0">Nie</option></select>'
+          : '<select><option value="0" selected>Nie</option><option value="1">Áno</option></select>'
       )
         .on('change', function() {
-          console.log('TEST');
+          var params = deserialize();
+          params.multiroom = $(this).val();
+
+          window.open(
+            location.origin + location.pathname + '?' + serialize(params),
+            '_self'
+          );
         })
         .attr('class', 'form-control')
     )
@@ -120,4 +159,13 @@ window.addEventListener('DOMContentLoaded', function() {
     .css({ width: '100%' });
 
   // Change the layout of room boxes
+  $('.b24panel-room').each(function() {
+    $('.at_offersummary', this).prepend(
+      [
+        '<h4 class="room-heading">',
+        $('.at_roomnametext', this).text(),
+        '</h4>'
+      ].join('')
+    );
+  });
 });
