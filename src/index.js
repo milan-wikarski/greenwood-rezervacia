@@ -1,3 +1,82 @@
+// Google analytics
+var mi_version = '7.9.0',
+  mi_track_user = !1,
+  mi_no_track_reason =
+    'Note: MonsterInsights does not track you as a logged-in site administrator to prevent site owners from accidentally skewing their own Google Analytics data.\nIf you are testing Google Analytics code, please do so either logged out or in the private browsing/incognito mode of your web browser.',
+  disableStr = 'ga-disable-UA-103560454-1';
+function __gaTrackerIsOptedOut() {
+  return document.cookie.indexOf(disableStr + '=true') > -1;
+}
+function __gaTrackerOptout() {
+  (document.cookie =
+    disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'),
+    (window[disableStr] = !0);
+}
+__gaTrackerIsOptedOut() && (window[disableStr] = !0),
+  mi_track_user
+    ? (!(function(e, t, o, n, r, a, i) {
+        (e.GoogleAnalyticsObject = r),
+          (e[r] =
+            e[r] ||
+            function() {
+              (e[r].q = e[r].q || []).push(arguments);
+            }),
+          (e[r].l = 1 * new Date()),
+          (a = t.createElement(o)),
+          (i = t.getElementsByTagName(o)[0]),
+          (a.async = 1),
+          (a.src = '//www.google-analytics.com/analytics.js'),
+          i.parentNode.insertBefore(a, i);
+      })(window, document, 'script', 0, '__gaTracker'),
+      __gaTracker('create', 'UA-103560454-1', 'auto'),
+      __gaTracker('set', 'forceSSL', !0),
+      __gaTracker('send', 'pageview'))
+    : (console.log(
+        'Note: MonsterInsights does not track you as a logged-in site administrator to prevent site owners from accidentally skewing their own Google Analytics data.\nIf you are testing Google Analytics code, please do so either logged out or in the private browsing/incognito mode of your web browser.'
+      ),
+      (function() {
+        var e = function() {
+            return null;
+          },
+          t = function() {
+            return null;
+          },
+          o = t.prototype;
+        (o.get = e), (o.set = e), (o.send = e);
+        var n = function() {
+          var e = arguments.length;
+          if (0 !== e) {
+            var t = arguments[e - 1];
+            if (
+              'object' == typeof t &&
+              null !== t &&
+              'function' == typeof t.hitCallback
+            )
+              try {
+                t.hitCallback();
+              } catch (e) {}
+            else
+              console.log(
+                'Not running function __gaTracker(' +
+                  arguments[0] +
+                  ' ....) because you are not being tracked. ' +
+                  mi_no_track_reason
+              );
+          }
+        };
+        (n.create = function() {
+          return new t();
+        }),
+          (n.getByName = function() {
+            return null;
+          }),
+          (n.getAll = function() {
+            return [];
+          }),
+          (n.remove = e),
+          (window.__gaTracker = n);
+      })());
+
 window.addEventListener('DOMContentLoaded', function() {
   function serialize(obj) {
     var str = [];
