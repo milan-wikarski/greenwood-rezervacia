@@ -563,6 +563,10 @@ a:hover {
   border-radius: 10px;
 }
 
+.b24panel-room .b24-room-desc {
+  display: none;
+}
+
 .b24panel-room .panel-body .offer .at_offername {
   padding: 0;
 }
@@ -1161,7 +1165,8 @@ window.addEventListener('DOMContentLoaded', function() {
       [
         '<h4 class="room-heading">',
         $('.at_roomnametext', this).text(),
-        '</h4>'
+        '</h4>',
+        $('.b24-room-desc', this).html()
       ].join('')
     );
   });

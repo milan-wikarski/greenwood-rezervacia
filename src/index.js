@@ -266,7 +266,8 @@ window.addEventListener('DOMContentLoaded', function() {
       [
         '<h4 class="room-heading">',
         $('.at_roomnametext', this).text(),
-        '</h4>'
+        '</h4>',
+        $('.b24-room-desc', this).html()
       ].join('')
     );
   });

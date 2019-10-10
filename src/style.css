@@ -483,6 +483,10 @@ a:hover {
   border-radius: 10px;
 }
 
+.b24panel-room .b24-room-desc {
+  display: none;
+}
+
 .b24panel-room .panel-body .offer .at_offername {
   padding: 0;
 }
