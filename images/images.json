@@ -1,0 +1,65 @@
+{
+  "rooms": [
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/31.png",
+        "https://media.xmlcal.com/pic/p0004/8855/33.png",
+        "https://media.xmlcal.com/pic/p0004/8855/32.png"
+      ],
+      "title": "Dvojlôžková izba superior"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/24.png",
+        "https://media.xmlcal.com/pic/p0004/8855/25.png",
+        "https://media.xmlcal.com/pic/p0004/8855/26.png",
+        "https://media.xmlcal.com/pic/p0004/8855/27.png"
+      ],
+      "title": "Dvojlôžková izba štandard"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/34.png",
+        "https://media.xmlcal.com/pic/p0004/8855/35.png",
+        "https://media.xmlcal.com/pic/p0004/8855/36.png",
+        "https://media.xmlcal.com/pic/p0004/8855/38.png",
+        "https://media.xmlcal.com/pic/p0004/8855/37.png"
+      ],
+      "title": "Studio superior"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/20.png",
+        "https://media.xmlcal.com/pic/p0004/8855/21.png",
+        "https://media.xmlcal.com/pic/p0004/8855/19.png",
+        "https://media.xmlcal.com/pic/p0004/8855/17.png",
+        "https://media.xmlcal.com/pic/p0004/8855/18.png"
+      ],
+      "title": "Rodinný dvojizbový apartmán"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/28.png",
+        "https://media.xmlcal.com/pic/p0004/8855/29.png",
+        "https://media.xmlcal.com/pic/p0004/8855/30.png"
+      ],
+      "title": "Dvojlôžková izba štandard plus"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/42.png",
+        "https://media.xmlcal.com/pic/p0004/8855/43.png",
+        "https://media.xmlcal.com/pic/p0004/8855/44.png"
+      ],
+      "title": "Rodinný dvojizbový apartmán"
+    },
+    {
+      "images": [
+        "https://media.xmlcal.com/pic/p0004/8855/39.png",
+        "https://media.xmlcal.com/pic/p0004/8855/40.png",
+        "https://media.xmlcal.com/pic/p0004/8855/41.png"
+      ],
+      "title": "Studio superior plus"
+    }
+  ]
+}
